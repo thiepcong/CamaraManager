@@ -33,8 +33,8 @@ import androidx.navigation.Navigation
 //import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.cameramanager.databinding.FragmentGalleryBinding
-import com.example.cameramanager.utils.MediaStoreFile
-import com.example.cameramanager.utils.MediaStoreUtils
+import com.example.cameraxmanager.utils.MediaStoreFile
+import com.example.cameraxmanager.utils.MediaStoreUtils
 import com.example.cameramanager.utils.padWithDisplayCutout
 import com.example.cameramanager.utils.showImmersive
 import kotlinx.coroutines.CompletableDeferred

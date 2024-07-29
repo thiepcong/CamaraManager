@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.cameramanager.utils
+package com.example.cameraxmanager.utils
 
 import android.content.ContentUris
 import android.content.Context
