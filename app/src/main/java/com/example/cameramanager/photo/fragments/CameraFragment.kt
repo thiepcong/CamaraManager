@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.cameramanager.fragments
+package com.example.cameramanager.photo.fragments
 
 import com.example.cameramanager.R
 import android.annotation.SuppressLint
@@ -40,15 +40,15 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.cameramanager.KEY_EVENT_ACTION
-import com.example.cameramanager.utils.ANIMATION_FAST_MILLIS
-import com.example.cameramanager.utils.ANIMATION_SLOW_MILLIS
-import com.example.cameramanager.utils.simulateClick
-import com.example.cameramanager.KEY_EVENT_EXTRA
+import com.example.cameramanager.photo.KEY_EVENT_ACTION
+import com.example.cameramanager.photo.utils.ANIMATION_FAST_MILLIS
+import com.example.cameramanager.photo.utils.ANIMATION_SLOW_MILLIS
+import com.example.cameramanager.photo.utils.simulateClick
+import com.example.cameramanager.photo.KEY_EVENT_EXTRA
 import com.example.cameramanager.databinding.CameraUiContainerBinding
 import com.example.cameramanager.databinding.FragmentCameraBinding
-import com.example.cameraxmanager.CameraXManager
-import com.example.cameraxmanager.PermissionManager
+import com.example.cameraxmanager.CameraXPhotoManager
+import com.example.cameraxmanager.PermissionPhotoManager
 import kotlinx.coroutines.launch
 /**
  * Main fragment for this app. Implements all camera operations including:
@@ -69,7 +69,7 @@ class CameraFragment : Fragment() {
     private var displayId: Int = -1
     private lateinit var windowManager: WindowManager
 
-    private lateinit var cameraXManager: CameraXManager
+    private lateinit var cameraXManager: CameraXPhotoManager
 
     private val displayManager by lazy {
         requireContext().getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
@@ -108,7 +108,7 @@ class CameraFragment : Fragment() {
         super.onResume()
         // Make sure that all permissions are still present, since the
         // user could have removed them while the app was in paused state.
-        if (!PermissionManager.hasPermissions(requireContext())) {
+        if (!PermissionPhotoManager.hasPermissions(requireContext())) {
             Navigation.findNavController(requireActivity(), R.id.fragment_container).navigate(R.id.action_cameraFragment_to_permissionsFragment)
         }
     }
@@ -153,7 +153,7 @@ class CameraFragment : Fragment() {
     @SuppressLint("MissingPermission")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cameraXManager = CameraXManager(requireContext(),requireActivity().windowManager,fragmentCameraBinding.viewFinder, viewLifecycleOwner)
+        cameraXManager = CameraXPhotoManager(requireContext(),requireActivity().windowManager,fragmentCameraBinding.viewFinder, viewLifecycleOwner)
 
         broadcastManager = LocalBroadcastManager.getInstance(view.context)
 

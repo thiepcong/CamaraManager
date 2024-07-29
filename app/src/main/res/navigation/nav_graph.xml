@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/permissionsFragment"
-        android:name="com.example.cameramanager.fragments.PermissionsFragment"
+        android:name="com.example.cameramanager.photo.fragments.PermissionsFragment"
         android:label="PermissionsFragment" >
         <action
             android:id="@+id/action_permissionsFragment_to_cameraFragment"
@@ -16,11 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/galleryFragment"
-        android:name="com.example.cameramanager.fragments.GalleryFragment"
+        android:name="com.example.cameramanager.photo.fragments.GalleryFragment"
         android:label="GalleryFragment" />
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.example.cameramanager.fragments.CameraFragment"
+        android:name="com.example.cameramanager.photo.fragments.CameraFragment"
         android:label="CameraFragment" >
         <action
             android:id="@+id/action_cameraFragment_to_permissionsFragment"

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.cameramanager.fragments
+package com.example.cameramanager.photo.fragments
 
 import com.example.cameramanager.R
 import android.content.Intent
@@ -35,8 +35,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.cameramanager.databinding.FragmentGalleryBinding
 import com.example.cameraxmanager.utils.MediaStoreFile
 import com.example.cameraxmanager.utils.MediaStoreUtils
-import com.example.cameramanager.utils.padWithDisplayCutout
-import com.example.cameramanager.utils.showImmersive
+import com.example.cameramanager.photo.utils.padWithDisplayCutout
+import com.example.cameramanager.photo.utils.showImmersive
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.launch
 

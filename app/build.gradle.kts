@@ -69,6 +69,9 @@ dependencies {
     // CameraX Lifecycle library
     implementation ("androidx.camera:camera-lifecycle:$camerax_version")
 
+    // CameraX Video
+    implementation ("androidx.camera:camera-video:${camerax_version}")
+
     // CameraX View class
     implementation ("androidx.camera:camera-view:$camerax_version")
 

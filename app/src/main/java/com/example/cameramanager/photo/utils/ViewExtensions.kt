@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.cameramanager.utils
+package com.example.cameramanager.photo.utils
 
 import android.os.Build
 import android.view.DisplayCutout

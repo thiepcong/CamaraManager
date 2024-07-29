@@ -1,22 +1,22 @@
-package com.example.cameramanager.fragments
+package com.example.cameramanager.photo.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.example.cameramanager.R
-import com.example.cameraxmanager.PermissionManager
+import com.example.cameraxmanager.PermissionPhotoManager
 
 /**
  * The sole purpose of this fragment is to request permissions and, once granted, display the
  * camera fragment to the user.
  */
 class PermissionsFragment : Fragment() {
-    private var permissionManager: PermissionManager? = null
+    private var permissionManager: PermissionPhotoManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        permissionManager = PermissionManager(requireContext(), this)
+        permissionManager = PermissionPhotoManager(requireContext(), this)
         permissionManager?.checkAndRequestPermissions {
             navigateToCamera()
         }

@@ -9,7 +9,7 @@ import androidx.activity.result.ActivityResultCaller
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 
-class PermissionManager(private val context: Context, private val caller: ActivityResultCaller) {
+class PermissionPhotoManager(private val context: Context, private val caller: ActivityResultCaller) {
 
     private var PERMISSIONS_REQUIRED = arrayOf(Manifest.permission.CAMERA)
 

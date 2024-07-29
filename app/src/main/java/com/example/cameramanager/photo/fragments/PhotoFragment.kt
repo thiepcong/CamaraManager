@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.cameramanager.fragments
+package com.example.cameramanager.photo.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

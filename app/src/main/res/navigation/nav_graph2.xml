@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2.xml"
+    app:startDestination="@id/permissionsVideoFragment">
+    <fragment
+        android:id="@+id/permissionsVideoFragment"
+        android:name="com.example.cameramanager.video.fragments.PermissionsVideoFragment"
+        android:label="fragment_permissions_video"
+        tools:layout="@layout/fragment_permissions_video" >
+        <action
+            android:id="@+id/action_permissionsVideoFragment_to_captureFragment"
+            app:destination="@id/captureFragment"
+            app:popUpTo="@id/permissionsVideoFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoViewerFragment"
+        android:name="com.example.cameramanager.video.fragments.VideoViewerFragment"
+        android:label="fragment_video_viewer"
+        tools:layout="@layout/fragment_video_viewer" >
+        <action
+            android:id="@+id/action_videoViewerFragment_to_captureFragment"
+            app:destination="@id/captureFragment" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/captureFragment"
+        android:name="com.example.cameramanager.video.fragments.CaptureFragment"
+        android:label="CaptureFragment" >
+        <action
+            android:id="@+id/action_captureFragment_to_videoViewerFragment"
+            app:destination="@id/videoViewerFragment"/>
+    </fragment>
+</navigation>

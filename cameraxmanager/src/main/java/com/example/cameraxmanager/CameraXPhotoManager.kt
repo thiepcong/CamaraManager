@@ -35,7 +35,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 typealias LumaListener = (luma: Double) -> Unit
-class CameraXManager(
+class CameraXPhotoManager(
     private val context: Context,
     private val windowManager: WindowManager,
     private val viewFinder: PreviewView,
