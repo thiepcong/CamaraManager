@@ -40,8 +40,6 @@ class CameraXManager(
     private val windowManager: WindowManager,
     private val viewFinder: PreviewView,
     private val lifecycleOwner: LifecycleOwner
-//    private val binding: FragmentCameraBinding,
-//    private val mediaStoreUtils: MediaStoreUtils
 ) {
     private var cameraExecutor: ExecutorService = Executors.newSingleThreadExecutor()
     private var cameraProvider: ProcessCameraProvider? = null
@@ -151,16 +149,6 @@ class CameraXManager(
         }
         // Re-bind use cases to update selected camera
         bindCameraUseCases()
-    }
-
-    private fun setGalleryThumbnail(filename: String) {
-//        binding.photoViewButton.post {
-//            binding.photoViewButton.setPadding(fragment.resources.getDimension(R.dimen.stroke_small).toInt())
-//            Glide.with(binding.photoViewButton)
-//                .load(filename)
-//                .apply(RequestOptions.circleCropTransform())
-//                .into(binding.photoViewButton)
-//        }
     }
 
     private fun observeCameraState(cameraInfo: CameraInfo,viewLifecycleOwner: LifecycleOwner) {

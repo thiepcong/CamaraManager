@@ -50,7 +50,6 @@ import com.example.cameramanager.databinding.FragmentCameraBinding
 import com.example.cameraxmanager.CameraXManager
 import com.example.cameraxmanager.PermissionManager
 import kotlinx.coroutines.launch
-import java.util.*
 /**
  * Main fragment for this app. Implements all camera operations including:
  * - Viewfinder
