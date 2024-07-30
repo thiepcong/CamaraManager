@@ -24,7 +24,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.cameramanager.R
-import com.example.cameraxmanager.utils.MediaStoreFile
+import com.example.cameraphotomanager.utils.MediaStoreFile
 import java.io.File
 
 

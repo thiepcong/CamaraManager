@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "CameraManager"
 include(":app")
-include(":cameraxmanager")
+include(":cameraphotomanager")
+include(":cameravideomanager")

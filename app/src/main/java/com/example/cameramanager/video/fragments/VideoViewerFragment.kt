@@ -37,19 +37,19 @@ class VideoViewerFragment : Fragment() {
         val tv = TypedValue()
         if (requireActivity().theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
             val actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, resources.displayMetrics)
-            binding.videoViewerTips.y  = binding.videoViewerTips.y - actionBarHeight
+            binding.videoViewerTips.y -= actionBarHeight
         }
 
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val uri = arguments?.getParcelable<Uri>("videoUri") ?: throw IllegalStateException("Not fix")
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
-            showVideo(Uri.parse("content://media/external/images/media/"))
+            showVideo(uri)
         } else {
             // force MediaScanner to re-scan the media file.
-            val path = getAbsolutePathFromUri(Uri.parse("content://media/external/images/media/")) ?: return
+            val path = getAbsolutePathFromUri(uri) ?: return
             MediaScannerConnection.scanFile(
                 context, arrayOf(path), null
             ) { _, uri ->

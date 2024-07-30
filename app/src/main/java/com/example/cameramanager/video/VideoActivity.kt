@@ -15,12 +15,14 @@ class VideoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         activityMainBinding = ActivityVideoBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
         // Fix the screen orientation for this sample to focus on cameraX API
         // rather than UI
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        supportActionBar?.hide()
     }
 
     override fun onResume() {

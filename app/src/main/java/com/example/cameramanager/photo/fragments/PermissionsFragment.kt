@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.example.cameramanager.R
-import com.example.cameraxmanager.PermissionPhotoManager
+import com.example.cameraphotomanager.PermissionPhotoManager
 
 /**
  * The sole purpose of this fragment is to request permissions and, once granted, display the

@@ -3,8 +3,9 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Enable instant app support -->
-    <dist:module dist:instant="true" /> <!-- Declare features -->
-    <uses-feature android:name="android.hardware.camera" /> <!-- Declare permissions -->
+    <dist:module dist:instant="true" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"

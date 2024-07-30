@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_videoViewerFragment_to_captureFragment"
             app:destination="@id/captureFragment" />
+        <argument
+            android:name="videoUri"
+            app:argType="android.net.Uri"/>
     </fragment>
 
 

@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cameramanager"
-        minSdk = 24
+        minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -46,7 +46,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(project(":cameraxmanager"))
+    implementation(project(":cameraphotomanager"))
+    implementation(project(":cameravideomanager"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
