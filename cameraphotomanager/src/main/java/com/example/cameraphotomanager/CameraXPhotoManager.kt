@@ -123,11 +123,11 @@ class CameraXPhotoManager(
         bindCameraUseCases()
     }
 
-    fun bindCameraUseCases() {
+    fun bindCameraUseCases(aspectRatio:Int? = null) {
         val display = windowManager.defaultDisplay
         val size = Point()
         display.getSize(size)
-        val screenAspectRatio = aspectRatio(size.x, size.y)
+        val screenAspectRatio = aspectRatio ?: aspectRatio(size.x, size.y)
         val rotation = viewFinder.display.rotation
 
         val cameraProvider = cameraProvider ?: throw IllegalStateException("Camera initialization failed.")
@@ -139,9 +139,10 @@ class CameraXPhotoManager(
             .build()
 
         imageCapture = ImageCapture.Builder()
-            .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
+            .setCaptureMode(ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY)
             .setTargetAspectRatio(screenAspectRatio)
             .setTargetRotation(rotation)
+            .setJpegQuality(100)
             .build()
 
         imageAnalyzer = ImageAnalysis.Builder()
@@ -218,6 +219,11 @@ class CameraXPhotoManager(
 
     fun turnFlash(isFlashOn: Boolean) {
         camera?.cameraControl?.enableTorch(isFlashOn)
+    }
+
+    // The flash will always/never be used when taking a picture.
+    fun changeFlashMode(isFlashModeOn: Boolean) {
+        imageCapture?.flashMode = if (isFlashModeOn) ImageCapture.FLASH_MODE_ON else ImageCapture.FLASH_MODE_OFF
     }
 
     private fun removeCameraStateObservers(cameraInfo: CameraInfo) {

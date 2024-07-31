@@ -8,9 +8,11 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
 import androidx.camera.core.Camera
+import androidx.camera.core.CameraInfo
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.camera.video.FallbackStrategy
 import androidx.camera.video.MediaStoreOutputOptions
 import androidx.camera.video.Quality
 import androidx.camera.video.QualitySelector
@@ -162,6 +164,10 @@ class CameraXVideoManager(
         camera?.cameraControl?.enableTorch(isFlashOn)
     }
 
+    private fun removeCameraStateObservers(cameraInfo: CameraInfo) {
+        cameraInfo.cameraState.removeObservers(lifecycleOwner)
+    }
+
     /**
      *  initializeQualitySectionsUI():
      *    Populate a RecyclerView to display camera capabilities:
@@ -179,8 +185,9 @@ class CameraXVideoManager(
         val cameraProvider = ProcessCameraProvider.getInstance(context).await()
         val cameraSelector = getCameraSelector(cameraIndex)
 
-        val quality = cameraCapabilities[cameraIndex].qualities[qualityIndex]
-        val qualitySelector = QualitySelector.from(Quality.SD)
+        val supportedQualities = cameraCapabilities[cameraIndex].qualities
+        val quality = supportedQualities.getOrNull(qualityIndex) ?: Quality.SD
+        val qualitySelector = QualitySelector.from(quality)
 
         viewFinder.updateLayoutParams<ConstraintLayout.LayoutParams> {
             val dimensionRatio1 = quality.getAspectRatioString(
@@ -199,9 +206,13 @@ class CameraXVideoManager(
             .setQualitySelector(qualitySelector)
             .build()
         videoCapture = VideoCapture.withOutput(recorder)
+        cameraProvider.unbindAll()
+        if (camera != null) {
+            // Must remove observers from the previous camera instance
+            removeCameraStateObservers(camera!!.cameraInfo)
+        }
 
         try {
-            cameraProvider.unbindAll()
             camera = cameraProvider.bindToLifecycle(
                 lifecycleOwner,
                 cameraSelector,

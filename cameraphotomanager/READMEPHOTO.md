@@ -31,7 +31,7 @@ The `CameraXPhotoManager` is an Android SDK designed to simplify the integration
 
    ```kotlin
    // CameraX core library
-    val camerax_version = "1.1.0-beta01"
+    val camerax_version = "1.3.4"
     implementation ("androidx.camera:camera-core:$camerax_version")
     // CameraX Camera2 extensions
     implementation ("androidx.camera:camera-camera2:$camerax_version")
